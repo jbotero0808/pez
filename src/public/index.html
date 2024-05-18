@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pezcoma</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <div
+      class="px-4 py-16 mx-auto sm:max-w-screen-full md:max-w-full lg:max-w-screen-full md:px-24 lg:px-8 lg:py-20"
+      style="
+        background-image: url('images/landing_bg2.png');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+      "
+    >
+      <div class="grid gap-10 lg:grid-cols-2">
+        <div class="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-lg">
+          <div
+            class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-teal-accent-400"
+          >
+            <img src="images/simple_fish.png" alt="Ingresa ya!" />
+          </div>
+          <div class="max-w-4xl mb-6 bg-teal-800 rounded-lg p-6">
+            <h2
+              class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl sm:leading-none"
+            >
+              Bienvenido, registrate<br class="hidden md:block" />
+              y entra a nuestra comunidad
+            </h2>
+            <p class="text-gray-100 md:text-lg">
+              Pezcoma es una red social para los amantes de la pesca y cocina de
+              pescado mariscos, donde podras compartir tus recetas, fotos y
+              videos de tus mejores momentos de pesca.
+            </p>
+          </div>
+          <div>
+            <a href="/auth/login" class="text-sky-50">
+              <button
+                class="relative group cursor-pointer text-sky-50 overflow-hidden h-16 w-64 rounded-md bg-teal-800 p-2 flex justify-center items-center font-extrabold"
+              >
+                <p class="z-10">Ingresa</p>
+                <div
+                  class="absolute top-3 right-20 group-hover:top-12 group-hover:-right-12 z-10 w-40 h-40 rounded-full group-hover:scale-150 group-hover:opacity-50 duration-500 bg-teal-900"
+                ></div>
+                <div
+                  class="absolute top-3 right-20 group-hover:top-12 group-hover:-right-12 z-10 w-32 h-32 rounded-full group-hover:scale-150 group-hover:opacity-50 duration-500 bg-teal-800"
+                ></div>
+                <div
+                  class="absolute top-3 right-20 group-hover:top-12 group-hover:-right-12 z-10 w-24 h-24 rounded-full group-hover:scale-150 group-hover:opacity-50 duration-500 bg-teal-700"
+                ></div>
+                <div
+                  class="absolute top-3 right-20 group-hover:top-12 group-hover:-right-12 z-10 w-14 h-14 rounded-full group-hover:scale-150 group-hover:opacity-50 duration-500 bg-teal-600"
+                ></div></button
+            ></a>
+          </div>
+        </div>
+        <div class="flex items-center justify-center -mx-4 lg:pl-8">
+          <div class="flex flex-col items-end px-3">
+            <img
+              class="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-28 sm:w-48 xl:w-56"
+              src="images/landing5.jpg"
+              alt=""
+            />
+            <img
+              class="object-cover w-20 h-20 rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40"
+              src="images/landing2.jpg"
+              alt=""
+            />
+          </div>
+          <div class="px-3">
+            <img
+              class="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80"
+              src="images/landing6.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

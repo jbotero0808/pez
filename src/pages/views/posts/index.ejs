@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <header class="bg-white"><%- include('../layouts/header'); %></header>
+    <div
+      class="container mx-auto px-4 py-8 w-1/2 md:w-1/2 bg-white shadow-md rounded"
+    >
+      <h1 class="text-2xl font-bold mb-2">Crear nueva publicación</h1>
+
+      <form onsubmit="formEvent(event)">
+        <div class="mb-4">
+          <label for="titulo" class="block text-gray-700">Título</label>
+          <input
+            type="text"
+            id="title"
+            name="titulo"
+            class="form-input w-full border border-gray-300 rounded-md"
+          />
+        </div>
+
+        <div class="">
+          <label for="contenido" class="block text-gray-700">Contenido</label>
+          <textarea
+            id="content"
+            name="contenido"
+            class="form-input w-full border border-gray-300 rounded-md"
+          ></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label for="urlImagen" class="block text-gray-700 mb-2"
+            >URL de imagen</label
+          >
+          <input
+            type="text"
+            id="image"
+            name="urlImagen"
+            class="form-input w-full border border-gray-300 rounded-md"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="bg-teal-800 text-white font-bold py-2 px-4 rounded-md hover:bg-green-900"
+        >
+          Publicar
+        </button>
+      </form>
+    </div>
+    <main class="container mx-auto px-6">
+      <div>
+        <% for (const post of posts) { %>
+        <div
+          class="bg-white shadow-md rounded overflow-hidden mx-auto flex flex-col items-center m-6 w-full sm:w-1/2"
+        >
+          <div class="p-4 flex flex-col">
+            <div class="flex items-center mb-2">
+              <a href="#" class="text-gray-500 hover:text-gray-700 mr-2">
+                <img
+                  class="w-6 h-6 rounded-full mr-1"
+                  src="https://static.vecteezy.com/system/resources/thumbnails/013/360/247/small/default-avatar-photo-icon-social-media-profile-sign-symbol-vector.jpg"
+                  alt="Foto de usuario"
+                />
+              </a>
+              <span class="user-name text-sm"
+                ><%= userNames[post.idUser] %></span
+              >
+              <span class="user-name text-sm">. <%= post.id %></span>
+            </div>
+            <h3 class="text-xl font-bold leading-tight text-gray-900">
+              <%= post.title %>
+            </h3>
+            <p class="text-gray-700 mb-3"><%= post.content %></p>
+          </div>
+          <img
+            class="w-full h-48 object-cover"
+            src="<%= post.image %>"
+            alt="Imagen del blog post"
+          />
+          <div class="flex justify-between w-full px-4 pb-4">
+            <a href="/post/<%= post.id %>"
+              ><button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Ver Comentarios
+              </button></a
+            >
+            <button
+              class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Comentar
+            </button>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </main>
+
+    <footer><%- include('../layouts/footer'); %></footer>
+  </body>
+</html>
+
+<script>
+  function formEvent(event) {
+    event.preventDefault();
+    const title = document.getElementById("title").value;
+    const content = document.getElementById("content").value;
+    const image = document.getElementById("image").value;
+
+    if (!title || !content) {
+      return false;
+    }
+    fetch("/api/post/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title, content, image }),
+    })
+      .then((response) => {
+        if (response.status === 201) {
+          alert("PUBLICACION CREADA");
+          console.log(response);
+        } else {
+          alert("ERROR EN CREAR PUBLICACION");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+</script>
