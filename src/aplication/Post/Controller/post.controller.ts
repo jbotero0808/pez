@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-const Post = require( "../../Post/Controller/post.controller");
+const Post = require( "../../Post/Model/post.model");
 
 export const getPosts = async (req: Request, res: Response) => {
   try {
@@ -13,8 +13,8 @@ export const getPosts = async (req: Request, res: Response) => {
 export const createPost = async (req: Request, res: Response) => {
   try {
     const idUser = req.cookies.usersession;
-    const { title, content, image, createdAt, updatedAt} = req.body;
-    const post = new Post({ idUser, title, content, image, createdAt, updatedAt });
+    const { title, content, image} = req.body;
+    const post = new Post({ idUser, title, content, image});
     await post.save();
     res.status(201).json(post);
   } catch (error) {
