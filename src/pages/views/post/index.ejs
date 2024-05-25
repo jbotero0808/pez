@@ -31,9 +31,19 @@
                   <%= userName %>
                 </p>
                 <p class="text-sm text-gray-600">
-                  Fecha de publicación: <%= new Date(post.createdAt).toLocaleString() %>
+                  <%= new Date(post.createdAt).toLocaleString() %>
                 </p>
-              </div>
+
+            </div>
+                <div class="flex justify-between w-full px-4 pb-4">
+                  <a href="/post">
+                    <button class="rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold py-2 px-4 shadow-md">
+                      Publicaciones
+                    </button>                
+                  </a>
+                </div>
+
+              
             </div>
             <!-- Título de la publicación -->
             <h2 class="text-2xl font-bold text-gray-900 mb-4 break-words">
