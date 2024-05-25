@@ -1,18 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+<html lang="es">
 
-  <body>
-    <header class="bg-white"><%- include('./layouts/header'); %></header>
-    <main>
-      <h1>HOME PAGE 1</h1>
-      <p id="cookie-info"><%= userID %></p>
-    </main>
-    <footer><%- include('./layouts/footer'); %></footer>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Bienvenido a Pesca Deportiva XYZ!</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .hero-image {
+      background-image: url('https://pixabay.com/images/search/sports/');
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+  <header class="bg-white">
+    <%- include('./layouts/header'); %>
+  </header>
+  <main>
+    <nav aria-label="Global" class="hidden md:block bg-gradient-to-r from-indigo-500 to-purple-600 px-4 py-4 flex items-center justify-between">
+      <a href="/" class="mr-4">
+      </a>
+      <div class="flex flex-col text-center text-white">
+        <h1 class="text-2xl font-bold">¡Bienvenido a Pesca Deportiva</h1>
+        <p class="text-lg mt-2">Su destino para aventuras de pesca inolvidables.</p>
+      </div>
+      <a href="/post" class="bg-white hover:bg-gray-200 text-gray-900 font-bold py-2 px-4 rounded mt-4">Publicaciones</a>
+    </nav>
+    
+    <section class="bg-white py-8">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Descubra lo que ofrecemos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="card bg-white rounded-lg shadow-md hover:shadow-lg p-4">
+            <h3 class="text-lg font-medium text-gray-800 mb-2">Embarcaciones modernas y equipadas</h3>
+            <p class="text-gray-700">Disfrute de la pesca en nuestras cómodas y seguras embarcaciones.</p>
+          </div>
+          <div class="card bg-white rounded-lg shadow-md hover:shadow-lg p-4">
+            <h3 class="text-lg font-medium text-gray-800 mb-2">Guías de pesca expertos y apasionados</h3>
+            <p class="text-gray-700">Nuestros guías lo llevarán a los mejores lugares de pesca y le brindarán consejos expertos.</p>
+          </div>
+          <div class="card bg-white rounded-lg shadow-md hover:shadow-lg p-4">
+            <h3 class="text-lg font-medium text-gray-800 mb-2">Equipo de pesca de alta calidad</h3>
+            <p class="text-gray-700">Le proporcionamos todo el equipo necesario para una experiencia de pesca exitosa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+</body>
+
 </html>
