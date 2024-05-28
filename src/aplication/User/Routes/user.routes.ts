@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/", authController.verifyJWT, userController.getUsers);
 router.post("/", authController.verifyJWT, userController.createUser);
 router.get("/:id", authController.verifyJWT, userController.getUser);
-router.put("/:id", authController.verifyJWT, userController.updateUser);
+router.post("/:id", authController.verifyJWT, userController.updateUser);
 router.delete("/:id", authController.verifyJWT, userController.deleteUser);
 
 export default router;

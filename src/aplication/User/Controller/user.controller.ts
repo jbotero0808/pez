@@ -36,7 +36,7 @@ const updateUser = async (req: Request, res: Response) => {
     const { id } = req.params;
     const { name, email } = req.body;
     const user = await User.findByIdAndUpdate(id, { name, email });
-    res.status(200).json(user);
+    res.redirect('/user');
   } catch (error) {
     return res.status(404).send("Usuario no encontrada");
   }
